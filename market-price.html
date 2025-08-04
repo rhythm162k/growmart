@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Price - Growmart</title>
+  <link rel="stylesheet" href="market-price.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="status-icons">
+        <span class="time">9:15</span>
+        <span class="cellular"></span>
+        <span class="wifi"></span>
+        <span class="battery"></span>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <span class="logo">GrowMart</span>
+      <div class="language">
+        <img src="images/internet.svg" alt="Internet" class="icon">
+        <span>EN</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Local Market Card -->
+      <button class="market-card" data-market="local">
+        <img src="images/local-market.png" alt="Local Market" class="market-image">
+        <div class="market-info">
+          <span class="market-text">From Local Market →</span>
+        </div>
+      </button>
+
+      <!-- Super Shop Card -->
+      <button class="market-card" data-market="super">
+        <img src="images/super-shop.png" alt="Super Shop" class="market-image">
+        <div class="market-info">
+          <span class="market-text">From Super Shop →</span>
+        </div>
+      </button>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-btn" data-page="sell">
+        <img src="images/shopping-bag.png" alt="Sell">
+        <span>Sell</span>
+      </button>
+      <button class="nav-btn active" data-page="price">
+        <img src="images/increase-2.png" alt="Price">
+        <span>Price</span>
+      </button>
+      <button class="nav-btn" data-page="home">
+        <img src="images/home.png" alt="Home">
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-page="tips">
+        <img src="images/leaf.png" alt="Tips">
+        <span>Tips</span>
+      </button>
+      <button class="nav-btn" data-page="profile">
+        <img src="images/user.png" alt="Profile">
+        <span>Profile</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="market-price.js"></script>
+</body>
+</html> 

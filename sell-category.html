@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowMart - Select Category to Sell</title>
+    <link rel="stylesheet" href="sell-category.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=SF+Pro:wght@400;590&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Status Bar -->
+        <div class="status-bar">
+            <div class="time">9:15</div>
+            <div class="status-icons">
+                <div class="cellular">
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                    <div class="signal-bar"></div>
+                </div>
+                <div class="wifi">
+                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none">
+                        <path d="M10.5 0C7.5 0 4.8 1.2 3 3.3L10.5 12L18 3.3C16.2 1.2 13.5 0 10.5 0Z" fill="black"/>
+                        <path d="M10.5 3C8.7 3 7.2 3.8 6.3 5.1L10.5 10.5L14.7 5.1C13.8 3.8 12.3 3 10.5 3Z" fill="black"/>
+                        <path d="M10.5 6C9.6 6 9 6.6 9 7.5L10.5 9L12 7.5C12 6.6 11.4 6 10.5 6Z" fill="black"/>
+                    </svg>
+                </div>
+                <div class="battery">
+                    <div class="battery-outline"></div>
+                    <div class="battery-fill"></div>
+                    <div class="battery-tip"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="logo">GrowMart</h1>
+                <div class="language-selector">
+                    <img src="images/sell-language-icon.png" alt="Language" class="lang-icon">
+                    <span class="lang-text">EN</span>
+                </div>
+            </div>
+            <div class="right-arrow">
+                <img src="images/sell-right-arrow.png" alt="Next" class="arrow-icon">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2 class="title">Select Category to sell</h2>
+            
+            <!-- Category Grid -->
+            <div class="category-grid">
+                <!-- Row 1 -->
+                <div class="category-row">
+                    <div class="category-card" data-category="potato">
+                        <div class="category-image">
+                            <img src="images/sell-potato.png" alt="Potato" class="product-image">
+                        </div>
+                        <span class="category-name">Potato</span>
+                    </div>
+                    <div class="category-card" data-category="tomato">
+                        <div class="category-image">
+                            <img src="images/tomato.png" alt="Tomato" class="product-image">
+                        </div>
+                        <span class="category-name">Tomato</span>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="category-row">
+                    <div class="category-card" data-category="onion">
+                        <div class="category-image">
+                            <img src="images/onion.png" alt="Onion" class="product-image">
+                        </div>
+                        <span class="category-name">Onion</span>
+                    </div>
+                    <div class="category-card" data-category="rice">
+                        <div class="category-image">
+                            <img src="images/rice.png" alt="Rice" class="product-image">
+                        </div>
+                        <span class="category-name">Rice</span>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="category-row">
+                    <div class="category-card" data-category="wheat">
+                        <div class="category-image">
+                            <img src="images/wheat.png" alt="Wheat" class="product-image">
+                        </div>
+                        <span class="category-name">Wheat</span>
+                    </div>
+                    <div class="category-card" data-category="corn">
+                        <div class="category-image">
+                            <img src="images/corn.png" alt="Corn" class="product-image">
+                        </div>
+                        <span class="category-name">Corn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-page="sell">
+                <img src="images/sell-shopping-bag.png" alt="Sell" class="nav-icon">
+                <span>Sell</span>
+            </button>
+            <button class="nav-btn" data-page="price">
+                <img src="images/sell-increase.png" alt="Price" class="nav-icon">
+                <span>Price</span>
+            </button>
+            <button class="nav-btn" data-page="home">
+                <img src="images/sell-home.png" alt="Home" class="nav-icon">
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="tips">
+                <img src="images/sell-leaf.png" alt="Tips" class="nav-icon">
+                <span>Tips</span>
+            </button>
+            <button class="nav-btn" data-page="profile">
+                <img src="images/sell-user.png" alt="Profile" class="nav-icon">
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Bottom Line -->
+        <div class="bottom-line"></div>
+    </div>
+
+    <script src="sell-category.js"></script>
+</body>
+</html> 

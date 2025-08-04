@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Location - Growmart</title>
+  <link rel="stylesheet" href="location-select.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="status-icons">
+        <span class="time">9:15</span>
+        <span class="cellular"></span>
+        <span class="wifi"></span>
+        <span class="battery"></span>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <span class="logo">GrowMart</span>
+      <div class="language">
+        <img src="images/internet.svg" alt="Internet" class="icon">
+        <span>EN</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- Map Image -->
+        <div class="map-container">
+          <img src="images/map.png" alt="Location Map" class="map-image">
+        </div>
+
+        <!-- Text Content -->
+        <div class="text-content">
+          <h1>Select Your Location</h1>
+          <p>Switch on your location to stay in tune with what's happening in your area</p>
+        </div>
+
+        <!-- District Dropdown -->
+        <div class="dropdown-section">
+          <label for="district">District</label>
+          <div class="dropdown-container">
+            <select id="district" class="dropdown-select">
+              <option value="">Select District</option>
+              <option value="mymensingh" selected>Mymensingh</option>
+              <option value="dhaka">Dhaka</option>
+              <option value="chittagong">Chittagong</option>
+              <option value="sylhet">Sylhet</option>
+              <option value="rajshahi">Rajshahi</option>
+              <option value="khulna">Khulna</option>
+              <option value="barisal">Barisal</option>
+              <option value="rangpur">Rangpur</option>
+            </select>
+            <div class="dropdown-arrow">▼</div>
+          </div>
+        </div>
+
+        <!-- Area Dropdown -->
+        <div class="dropdown-section">
+          <label for="area">Your Area</label>
+          <div class="dropdown-container">
+            <select id="area" class="dropdown-select">
+              <option value="">Types of your area</option>
+              <option value="urban">Urban</option>
+              <option value="suburban">Suburban</option>
+              <option value="rural">Rural</option>
+              <option value="coastal">Coastal</option>
+              <option value="mountain">Mountain</option>
+            </select>
+            <div class="dropdown-arrow">▼</div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="submit-btn">Submit</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="location-select.js"></script>
+</body>
+</html> 

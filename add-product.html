@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="add-product.css">
+</head>
+<body>
+    <div class="top-bar">
+        <span class="time">9:15</span>
+        <div class="status-icons">
+            <span class="signal"></span>
+            <span class="wifi"></span>
+            <span class="battery"></span>
+        </div>
+    </div>
+    <div class="header">
+        <button class="back-btn">&lt;</button>
+        <h1>GrowMart</h1>
+        <button class="lang-btn">EN</button>
+    </div>
+    <div class="content">
+        <h2>Add Product</h2>
+        <p>Fill in the details below to add your product</p>
+        <div class="image-upload">
+            <span>Image</span>
+            <button class="add-image-btn">+</button>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" step="0.1">
+        </div>
+        <button class="submit-btn">add</button>
+    </div>
+    <nav class="navbar">
+        <a href="#" class="nav-item" data-section="sell">
+            <span class="icon sell-icon"></span>
+            <span class="text">Sell</span>
+        </a>
+        <a href="#" class="nav-item" data-section="price">
+            <span class="icon price-icon"></span>
+            <span class="text">Price</span>
+        </a>
+        <a href="#" class="nav-item" data-section="home">
+            <span class="icon home-icon"></span>
+            <span class="text">Home</span>
+        </a>
+        <a href="#" class="nav-item" data-section="tips">
+            <span class="icon tips-icon"></span>
+            <span class="text">Tips</span>
+        </a>
+        <a href="#" class="nav-item" data-section="profile">
+            <span class="icon profile-icon"></span>
+            <span class="text">Profile</span>
+        </a>
+    </nav>
+    <script src="add-product.js"></script>
+</body>
+</html>
