@@ -3,44 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Shop - Growmart</title>
-  <link rel="stylesheet" href="super-shop.css">
+  <title>Local Market - Growmart</title>
+  <link rel="stylesheet" href="css/local-market.css">
+  <link rel="stylesheet" href="css/shared-components.css">
 </head>
 <body>
   <div class="container">
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <div class="status-icons">
-        <span class="time">9:15</span>
-        <span class="cellular"></span>
-        <span class="wifi"></span>
-        <span class="battery"></span>
-      </div>
-    </div>
-
     <!-- Header -->
     <div class="header">
       <div class="header-content">
-        <span class="logo">GrowMart</span>
-        <div class="language">
-          <img src="images/internet.png" alt="Internet" class="icon">
-          <span>EN</span>
+        <h1 class="logo">GrowMart</h1>
+        <div class="language-selector">
+          <button class="lang-btn">
+            <img src="images/internet-2.png" alt="Language" class="lang-icon">
+          </button>
+          <span class="lang-text">EN</span>
         </div>
       </div>
-      <div class="back-arrow">
-        <img src="images/right-arrow.png" alt="Back" class="arrow-icon">
-      </div>
     </div>
+    <div class="flip-horizontally right-arrow">
+        <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
+    </div>
+
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Super Shop Card -->
-      <div class="super-shop-card">
-        <div class="shop-image-container">
-          <img src="images/unimart.png" alt="UniMart" class="shop-image">
-        </div>
-        <div class="shop-info">
-          <span class="shop-name">Name of supershop 1→</span>
+      <!-- Market Card -->
+      <div class="market-card">
+        <img src="images/supershop.png" alt="Local Market" class="market-image">
+        <div class="market-info">
+          <span class="market-text">Name of Super Shop 1→</span>
         </div>
       </div>
     </main>
@@ -48,11 +40,11 @@
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
       <button class="nav-btn" data-page="sell">
-        <img src="images/shopping-bag.png" alt="Sell">
+        <img src="images/sell.png" alt="Sell">
         <span>Sell</span>
       </button>
       <button class="nav-btn active" data-page="price">
-        <img src="images/increase-2.png" alt="Price">
+        <img src="images/increase.png" alt="Price">
         <span>Price</span>
       </button>
       <button class="nav-btn" data-page="home">
@@ -64,12 +56,12 @@
         <span>Tips</span>
       </button>
       <button class="nav-btn" data-page="profile">
-        <img src="images/user.png" alt="Profile">
+        <img src="images/profile.png" alt="Profile">
         <span>Profile</span>
       </button>
     </nav>
   </div>
 
-  <script src="super-shop.js"></script>
+  <script src="js/local-market.js"></script>
 </body>
 </html> 

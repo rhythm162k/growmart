@@ -1,21 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navButtons = document.querySelectorAll('.nav-btn');
-  const backArrow = document.querySelector('.back-arrow');
-  const superShopCard = document.querySelector('.super-shop-card');
+  const backArrow = document.querySelector('.back-btn');
 
   // Handle navigation buttons
   navButtons.forEach(btn => {
     btn.addEventListener('click', function() {
       const page = this.getAttribute('data-page');
-
+      
       // Remove active class from all buttons
       navButtons.forEach(b => b.classList.remove('active'));
-
+      
       // Add active class to clicked button
       this.classList.add('active');
-
+      
       console.log('Navigating to:', page);
-
+      
       // Handle navigation based on page
       switch(page) {
         case 'home':
@@ -39,52 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Handle back arrow
-  backArrow.addEventListener('click', function() {
-    console.log('Going back');
-    // Navigate back to previous page
-    window.history.back();
-    // Or navigate to a specific page
-    // window.location.href = 'market-price.html';
-  });
-
-  // Handle super shop card click
-  if (superShopCard) {
-    superShopCard.addEventListener('click', function() {
-      console.log('Super shop card clicked');
-      
-      // Add selection animation
-      this.classList.add('selecting');
-      
-      // Remove animation class after animation completes
-      setTimeout(() => {
-        this.classList.remove('selecting');
-      }, 300);
-
-      // Navigate to market prices page for this super shop
-      setTimeout(() => {
-        window.location.href = 'market-prices.html?shop=super';
-      }, 500);
-    });
-
-    // Add hover effects for better UX
-    superShopCard.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-2px)';
-      this.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.1)';
-    });
-
-    superShopCard.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
-      this.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
-    });
-  }
-
-  // Add hover effects for navigation buttons
+  // Add hover effects for better UX
   navButtons.forEach(btn => {
     btn.addEventListener('mouseenter', function() {
       this.style.transform = 'scale(1.05)';
     });
-
+    
     btn.addEventListener('mouseleave', function() {
       this.style.transform = 'scale(1)';
     });
@@ -94,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
   navButtons.forEach(btn => {
     let touchStartY = 0;
     let touchEndY = 0;
-
+    
     btn.addEventListener('touchstart', function(e) {
       touchStartY = e.touches[0].clientY;
     });
-
+    
     btn.addEventListener('touchend', function(e) {
       touchEndY = e.changedTouches[0].clientY;
-
+      
       // Check if it's a tap (not a scroll)
       if (Math.abs(touchStartY - touchEndY) < 10) {
         this.click();
@@ -109,33 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add touch support for super shop card
-  if (superShopCard) {
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    superShopCard.addEventListener('touchstart', function(e) {
-      touchStartY = e.touches[0].clientY;
-    });
-
-    superShopCard.addEventListener('touchend', function(e) {
-      touchEndY = e.changedTouches[0].clientY;
-
-      // Check if it's a tap (not a scroll)
-      if (Math.abs(touchStartY - touchEndY) < 10) {
-        this.click();
-      }
-    });
-  }
+  // Handle back arrow
+  backArrow.addEventListener('click', function() {
+    console.log('Going back');
+    // Navigate back to previous page
+    window.history.back();
+    // Or navigate to a specific page
+    // window.location.href = 'market-price.html';
+  });
 
   // Add loading state for images
-  const shopImage = document.querySelector('.shop-image');
-  if (shopImage) {
-    shopImage.addEventListener('load', function() {
+  const marketImage = document.querySelector('.market-image');
+  if (marketImage) {
+    marketImage.addEventListener('load', function() {
       this.style.opacity = '1';
     });
-
-    shopImage.addEventListener('error', function() {
+    
+    marketImage.addEventListener('error', function() {
       this.style.opacity = '0.5';
       console.warn('Failed to load image:', this.src);
     });
@@ -144,56 +93,39 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add smooth scrolling for better UX
   document.documentElement.style.scrollBehavior = 'smooth';
 
+  // Add page transition effects
+  document.body.style.transition = 'opacity 0.3s ease';
+  
+  // Fade in effect on page load
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.body.style.opacity = '1';
+  }, 100);
+
   // Add keyboard navigation support
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       // Go back when Escape key is pressed
       window.history.back();
     }
-    
-    // Navigate with arrow keys
-    if (e.key === 'ArrowLeft') {
-      // Navigate to previous page
-      window.history.back();
-    }
-    
-    if (e.key === 'Enter' && document.activeElement === superShopCard) {
-      superShopCard.click();
-    }
   });
 
   // Add visual feedback for interactions
-  if (superShopCard) {
-    superShopCard.addEventListener('focus', function() {
-      this.style.outline = '2px solid #53B175';
-      this.style.outlineOffset = '2px';
+  const marketCard = document.querySelector('.market-card');
+  if (marketCard) {
+    marketCard.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+      this.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.1)';
     });
-
-    superShopCard.addEventListener('blur', function() {
-      this.style.outline = 'none';
-    });
-  }
-
-  // Add URL parameter handling for pre-selection
-  function handleUrlParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const shop = urlParams.get('shop');
     
-    if (shop) {
-      console.log('Shop parameter:', shop);
-      // You can add logic here to pre-select or modify the card based on the shop parameter
-    }
+    marketCard.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+    });
   }
-
-  handleUrlParams();
-
-  // Add page transition effects
-  window.addEventListener('beforeunload', function() {
-    document.body.style.opacity = '0';
-  });
 
   // Export functions for use in other scripts
-  window.superShopUtils = {
+  window.localMarketUtils = {
     goBack: () => {
       window.history.back();
     },
@@ -202,43 +134,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (btn) {
         btn.click();
       }
-    },
-    selectShop: () => {
-      if (superShopCard) {
-        superShopCard.click();
-      }
     }
   };
-
-  // Add analytics tracking (optional)
-  function trackEvent(eventName, data = {}) {
-    console.log('Event tracked:', eventName, data);
-    // Add your analytics tracking code here
-  }
-
-  // Track page load
-  trackEvent('page_view', {
-    page: 'super_shop',
-    timestamp: new Date().toISOString()
-  });
-
-  // Track interactions
-  if (superShopCard) {
-    superShopCard.addEventListener('click', function() {
-      trackEvent('shop_card_click', {
-        shop_name: 'Name of supershop 1',
-        timestamp: new Date().toISOString()
-      });
-    });
-  }
-
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const page = this.getAttribute('data-page');
-      trackEvent('navigation_click', {
-        destination: page,
-        timestamp: new Date().toISOString()
-      });
-    });
-  });
 }); 
+document.querySelector('.lang-btn').addEventListener('click', () => {
+  const langBtn = document.querySelector('.lang-text');
+  if (langBtn.textContent === 'EN') {
+      langBtn.textContent = 'BN';
+  } else {
+      langBtn.textContent = 'EN';
+  }
+});

@@ -43,48 +43,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowMart</title>
-    <link rel="stylesheet" href="after_added.css">
+    <link rel="stylesheet" href="css/after_added.css">
 </head>
 <body>
-    <div class="top-bar">
-        <span class="time">9:15</span>
-        <div class="status-icons">
-            <span class="signal"></span>
-            <span class="wifi"></span>
-            <span class="battery"></span>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="logo">GrowMart</h1>
+                <div class="language-selector">
+                <button class="lang-btn">
+                  <img src="images/internet-2.png" alt="Language" class="lang-icon">
+                </button>
+                <span class="lang-text">EN</span>
+                </div>
+            </div>
         </div>
+        <div class="flip-horizontally right-arrow">
+            <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
+        </div>
+        <div class="content">
+            <div class="product-list"></div>
+            <button class="add-btn">+</button>
+        </div>
+        <nav class="bottom-nav">
+            <button class="nav-btn" data-page="sell">
+                <img src="images/sell.png" alt="Sell">
+                <span>Sell</span>
+            </button>
+            <button class="nav-btn active" data-page="price">
+                <img src="images/increase.png" alt="Price">
+                <span>Price</span>
+            </button>
+            <button class="nav-btn" data-page="home">
+                <img src="images/home.png" alt="Home">
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="tips">
+                <img src="images/leaf.png" alt="Tips">
+                <span>Tips</span>
+            </button>
+            <button class="nav-btn" data-page="profile">
+                <img src="images/profile.png" alt="Profile">
+                <span>Profile</span>
+            </button>
+        </nav>
     </div>
-    <div class="header">
-        <button class="back-btn">&lt;</button>
-        <h1>GrowMart</h1>
-        <button class="lang-btn">EN</button>
-    </div>
-    <div class="content">
-        <div class="product-list"></div>
-        <button class="add-btn">+</button>
-    </div>
-    <nav class="navbar">
-        <a href="#" class="nav-item" data-section="sell">
-            <span class="icon sell-icon"></span>
-            <span class="text">Sell</span>
-        </a>
-        <a href="#" class="nav-item" data-section="price">
-            <span class="icon price-icon"></span>
-            <span class="text">Price</span>
-        </a>
-        <a href="#" class="nav-item" data-section="home">
-            <span class="icon home-icon"></span>
-            <span class="text">Home</span>
-        </a>
-        <a href="#" class="nav-item" data-section="tips">
-            <span class="icon tips-icon"></span>
-            <span class="text">Tips</span>
-        </a>
-        <a href="#" class="nav-item" data-section="profile">
-            <span class="icon profile-icon"></span>
-            <span class="text">Profile</span>
-        </a>
-    </nav>
-    <script src="after_added.js"></script>
+    <script src="js/after_added.js"></script>
 </body>
 </html>

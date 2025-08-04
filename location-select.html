@@ -4,28 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Location - Growmart</title>
-  <link rel="stylesheet" href="location-select.css">
+  <link rel="stylesheet" href="css/location-select.css">
 </head>
 <body>
   <div class="container">
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <div class="status-icons">
-        <span class="time">9:15</span>
-        <span class="cellular"></span>
-        <span class="wifi"></span>
-        <span class="battery"></span>
-      </div>
-    </div>
-
     <!-- Header -->
     <div class="header">
-      <span class="logo">GrowMart</span>
-      <div class="language">
-        <img src="images/internet.svg" alt="Internet" class="icon">
-        <span>EN</span>
+      <div class="header-content">
+          <h1 class="logo">GrowMart</h1>
+          <div class="language-selector">
+          <button class="lang-btn">
+            <img src="images/internet-2.png" alt="Language" class="lang-icon">
+          </button>
+          <span class="lang-text">EN</span>
+          </div>
       </div>
     </div>
+    <div class="flip-horizontally right-arrow">
+        <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
+    </div>
+
 
     <!-- Main Content -->
     <main class="main-content">
@@ -56,7 +54,6 @@
               <option value="barisal">Barisal</option>
               <option value="rangpur">Rangpur</option>
             </select>
-            <div class="dropdown-arrow">▼</div>
           </div>
         </div>
 
@@ -72,7 +69,6 @@
               <option value="coastal">Coastal</option>
               <option value="mountain">Mountain</option>
             </select>
-            <div class="dropdown-arrow">▼</div>
           </div>
         </div>
 
@@ -82,6 +78,6 @@
     </main>
   </div>
 
-  <script src="location-select.js"></script>
+  <script src="js/location-select.js"></script>
 </body>
 </html> 

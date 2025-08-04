@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileNumberInput = document.getElementById('mobileNumber');
     const nextButton = document.getElementById('nextButton');
-    const rightArrow = document.querySelector('.right-arrow');
-    const languageSelector = document.querySelector('.language-selector');
 
     // Mobile number input functionality
     mobileNumberInput.addEventListener('focus', function() {
@@ -74,20 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Right arrow functionality
-    rightArrow.addEventListener('click', function() {
-        // Navigate to next page or show menu
-        console.log('Right arrow clicked');
-        // Add your navigation logic here
-    });
-
-    // Language selector functionality
-    languageSelector.addEventListener('click', function() {
-        console.log('Language selector clicked');
-        // Toggle language or show language selection modal
-        toggleLanguage();
-    });
-
     // Update next button state based on input
     function updateNextButtonState() {
         const number = mobileNumberInput.value.trim();
@@ -127,55 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 
-    // Toggle language function
-    function toggleLanguage() {
-        const langText = document.querySelector('.lang-text');
-        const currentLang = langText.textContent;
-        
-        // Toggle between EN and BN (or other languages)
-        if (currentLang === 'EN') {
-            langText.textContent = 'BN';
-            langText.style.color = '#53B175';
-        } else {
-            langText.textContent = 'EN';
-            langText.style.color = '#53B175';
-        }
-    }
-
-    // Add shake animation CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        
-        .next-button.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-        
-        .next-button.loading .next-icon {
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .input-field.focused {
-            transform: translateY(-2px);
-        }
-        
-        .input-field.focused .input-line {
-            background-color: #53B175;
-            height: 2px;
-        }
-    `;
-    document.head.appendChild(style);
-
     // Initialize button state
     updateNextButtonState();
 
@@ -214,3 +149,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 }); 
+document.querySelector('.back-btn').addEventListener('click', () => {
+    window.history.back();
+});
+
+document.querySelector('.lang-btn').addEventListener('click', () => {
+    const langBtn = document.querySelector('.lang-text');
+    if (langBtn.textContent === 'EN') {
+        langBtn.textContent = 'BN';
+    } else {
+        langBtn.textContent = 'EN';
+    }
+});

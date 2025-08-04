@@ -4,58 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" href="add-product.css">
+    <link rel="stylesheet" href="css/add-product.css">
 </head>
 <body>
-    <div class="top-bar">
-        <span class="time">9:15</span>
-        <div class="status-icons">
-            <span class="signal"></span>
-            <span class="wifi"></span>
-            <span class="battery"></span>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="logo">GrowMart</h1>
+                <div class="language-selector">
+                <button class="lang-btn">
+                  <img src="images/internet-2.png" alt="Language" class="lang-icon">
+                </button>
+                <span class="lang-text">EN</span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="header">
-        <button class="back-btn">&lt;</button>
-        <h1>GrowMart</h1>
-        <button class="lang-btn">EN</button>
-    </div>
-    <div class="content">
-        <h2>Add Product</h2>
-        <p>Fill in the details below to add your product</p>
-        <div class="image-upload">
-            <span>Image</span>
-            <button class="add-image-btn">+</button>
-            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        <div class="flip-horizontally right-arrow">
+            <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
         </div>
-        <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" step="0.1">
+          
+        <div class="content">
+            <h2>Add Product</h2>
+            <p>Fill in the details below to add your product</p>
+            <div class="image-upload">
+                <span>Image</span>
+                <button class="add-image-btn">+</button>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Minimum quantity in Kg</label>
+                <input type="number" id="quantity" name="quantity" step="1">
+            </div>
+            <button class="submit-btn">add</button>
         </div>
-        <button class="submit-btn">add</button>
+        <nav class="bottom-nav">
+            <button class="nav-btn" data-page="sell">
+              <img src="images/sell.png" alt="Sell">
+              <span>Sell</span>
+            </button>
+            <button class="nav-btn active" data-page="price">
+              <img src="images/increase.png" alt="Price">
+              <span>Price</span>
+            </button>
+            <button class="nav-btn" data-page="home">
+              <img src="images/home.png" alt="Home">
+              <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="tips">
+              <img src="images/leaf.png" alt="Tips">
+              <span>Tips</span>
+            </button>
+            <button class="nav-btn" data-page="profile">
+              <img src="images/profile.png" alt="Profile">
+              <span>Profile</span>
+            </button>
+          </nav>
     </div>
-    <nav class="navbar">
-        <a href="#" class="nav-item" data-section="sell">
-            <span class="icon sell-icon"></span>
-            <span class="text">Sell</span>
-        </a>
-        <a href="#" class="nav-item" data-section="price">
-            <span class="icon price-icon"></span>
-            <span class="text">Price</span>
-        </a>
-        <a href="#" class="nav-item" data-section="home">
-            <span class="icon home-icon"></span>
-            <span class="text">Home</span>
-        </a>
-        <a href="#" class="nav-item" data-section="tips">
-            <span class="icon tips-icon"></span>
-            <span class="text">Tips</span>
-        </a>
-        <a href="#" class="nav-item" data-section="profile">
-            <span class="icon profile-icon"></span>
-            <span class="text">Profile</span>
-        </a>
-    </nav>
-    <script src="add-product.js"></script>
+    
+    <script src="js/add-product.js"></script>
 </body>
 </html>

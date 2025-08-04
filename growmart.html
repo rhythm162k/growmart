@@ -4,122 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Growmart Home</title>
-  <link rel="stylesheet" href="growmart.css">
+  <link rel="stylesheet" href="css/growmart.css">
 </head>
 <body>
-  <div class="fixed-header">
-    <div class="top-bar">
-      <div class="status-icons">
-        <span class="battery"></span>
-        <span class="wifi"></span>
-        <span class="cellular"></span>
-        <span class="time">9:15</span>
-      </div>
-    </div>
+  <div class="container">
     <div class="header">
-      <span class="logo">GrowMart</span>
-      <div class="language">
-        <img src="images/internet.svg" alt="Internet" class="icon">
-        <span>EN</span>
+      <div class="header-content">
+        <h1 class="logo">GrowMart</h1>
+        <div class="language-selector">
+          <button class="lang-btn">
+            <img src="images/internet-2.png" alt="Language" class="lang-icon">
+          </button>
+          <span class="lang-text">EN</span>
+        </div>
       </div>
+      
     </div>
+
+    <main class="scrollable">
+      <section class="ad-frame">
+        <button class="carousel-arrow left" aria-label="Previous ad">&#8592;</button>
+        <div class="carousel-track">
+          <div class="ad-slide active">Ad Slide 1</div>
+          <div class="ad-slide">Ad Slide 2</div>
+          <div class="ad-slide">Ad Slide 3</div>
+        </div>
+        <button class="carousel-arrow right" aria-label="Next ad">&#8594;</button>
+        <div class="ad-nav">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+      <section class="market">
+        <h2>Today’s Market</h2>
+        <div class="market-cards">
+          <div class="product-card">
+            <img src="images/potato.png" alt="Potato">
+            <div class="product-info">Potato<br>৳60/Kg</div>
+          </div>
+          <div class="product-card">
+            <img src="images/chili.png" alt="Chili">
+            <div class="product-info">Chili<br>৳60/Kg</div>
+          </div>
+          <div class="product-card">
+            <img src="images/wheat.png" alt="Wheat">
+            <div class="product-info">Wheat<br>৳60/Kg</div>
+          </div>
+        </div>
+        <button class="see-more">See More →</button>
+      </section>
+      <section class="crops">
+        <h2>Crops for the season</h2>
+        <div class="crops-cards">
+          <div class="crop-card">
+            <img src="images/jute.png" alt="Jute">
+            <div class="crop-info">Jute</div>
+          </div>
+          <div class="crop-card">
+            <img src="images/rice.png" alt="Rice">
+            <div class="crop-info">Aus Rice</div>
+          </div>
+        </div>
+        <button class="learn-more">Learn More →</button>
+      </section>
+      <section class="weather">
+        <h2>Weather</h2>
+        <div class="weather-card">
+          <div class="weather-main">
+            <span class="temp">26°</span>
+            <span class="day">Friday</span>
+            <span class="location">USA, New York</span>
+          </div>
+          <div class="weather-details">
+            <span>Last updated 11:45</span>
+            <span>Sunny</span>
+            <span>28 km/h</span>
+            <span>42%</span>
+            <span>H 30° L 20°</span>
+          </div>
+        </div>
+      </section>
+      <section class="tips">
+        <h2>Tips of the Day</h2>
+        <div class="tips-card">
+          <img src="images/pushpin.png" alt="Tip">
+          <div class="tip-text">
+            Adapt to Flooding and Water Management:<br>
+            Consider traditional techniques like floating raft cultivation for areas prone to monsoon flooding, and ensure proper irrigation and drainage systems
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="bottom-nav">
+      <button class="nav-btn" data-page="sell">
+        <img src="images/sell.png" alt="Sell">
+        <span>Sell</span>
+      </button>
+      <button class="nav-btn active" data-page="price">
+        <img src="images/increase.png" alt="Price">
+        <span>Price</span>
+      </button>
+      <button class="nav-btn" data-page="home">
+        <img src="images/home.png" alt="Home">
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-page="tips">
+        <img src="images/leaf.png" alt="Tips">
+        <span>Tips</span>
+      </button>
+      <button class="nav-btn" data-page="profile">
+        <img src="images/profile.png" alt="Profile">
+        <span>Profile</span>
+      </button>
+    </nav>
   </div>
-  <main class="scrollable">
-    <section class="ad-frame">
-      <button class="carousel-arrow left" aria-label="Previous ad">&#8592;</button>
-      <div class="carousel-track">
-        <div class="ad-slide active">Ad Slide 1</div>
-        <div class="ad-slide">Ad Slide 2</div>
-        <div class="ad-slide">Ad Slide 3</div>
-      </div>
-      <button class="carousel-arrow right" aria-label="Next ad">&#8594;</button>
-      <div class="ad-nav">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
-    <section class="market">
-      <h2>Today’s Market</h2>
-      <div class="market-cards">
-        <div class="product-card">
-          <img src="images/potato.png" alt="Potato">
-          <div class="product-info">Potato<br>৳60/Kg</div>
-        </div>
-        <div class="product-card">
-          <img src="images/chili.png" alt="Chili">
-          <div class="product-info">Chili<br>৳60/Kg</div>
-        </div>
-        <div class="product-card">
-          <img src="images/wheat.png" alt="Wheat">
-          <div class="product-info">Wheat<br>৳60/Kg</div>
-        </div>
-      </div>
-      <button class="see-more">See More →</button>
-    </section>
-    <section class="crops">
-      <h2>Crops for the season</h2>
-      <div class="crops-cards">
-        <div class="crop-card">
-          <img src="images/jute.png" alt="Jute">
-          <div class="crop-info">Jute</div>
-        </div>
-        <div class="crop-card">
-          <img src="images/rice.png" alt="Rice">
-          <div class="crop-info">Aus Rice</div>
-        </div>
-      </div>
-      <button class="learn-more">Learn More →</button>
-    </section>
-    <section class="weather">
-      <h2>Weather</h2>
-      <div class="weather-card">
-        <div class="weather-main">
-          <span class="temp">26°</span>
-          <span class="day">Friday</span>
-          <span class="location">USA, New York</span>
-        </div>
-        <div class="weather-details">
-          <span>Last updated 11:45</span>
-          <span>Sunny</span>
-          <span>28 km/h</span>
-          <span>42%</span>
-          <span>H 30° L 20°</span>
-        </div>
-      </div>
-    </section>
-    <section class="tips">
-      <h2>Tips of the Day</h2>
-      <div class="tips-card">
-        <img src="images/pushpin.png" alt="Tip">
-        <div class="tip-text">
-          Adapt to Flooding and Water Management:<br>
-          Consider traditional techniques like floating raft cultivation for areas prone to monsoon flooding, and ensure proper irrigation and drainage systems
-        </div>
-      </div>
-    </section>
-  </main>
-  <nav class="bottom-nav">
-    <button class="nav-btn">
-              <img src="images/shopping-bag.svg" alt="Sell">
-      <span>Sell</span>
-    </button>
-    <button class="nav-btn">
-      <img src="images/increase.png" alt="Price">
-      <span>Price</span>
-    </button>
-    <button class="nav-btn active">
-              <img src="images/home.svg" alt="Home">
-    </button>
-    <button class="nav-btn">
-              <img src="images/leaf.svg" alt="Tips">
-      <span>Tips</span>
-    </button>
-    <button class="nav-btn">
-      <img src="images/user.png" alt="Profile">
-      <span>Profile</span>
-    </button>
-  </nav>
-  <script src="growmart.js"></script>
+  <script src="js/growmart.js"></script>
 </body>
 </html> 

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navButtons = document.querySelectorAll('.nav-btn');
-  const backArrow = document.querySelector('.back-arrow');
+  const backArrow = document.querySelector('.back-btn');
 
   // Handle navigation buttons
   navButtons.forEach(btn => {
@@ -38,15 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Handle back arrow
-  backArrow.addEventListener('click', function() {
-    console.log('Going back');
-    // Navigate back to previous page
-    window.history.back();
-    // Or navigate to a specific page
-    // window.location.href = 'market-price.html';
-  });
-
   // Add hover effects for better UX
   navButtons.forEach(btn => {
     btn.addEventListener('mouseenter', function() {
@@ -75,6 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
         this.click();
       }
     });
+  });
+
+  // Handle back arrow
+  backArrow.addEventListener('click', function() {
+    console.log('Going back');
+    // Navigate back to previous page
+    window.history.back();
+    // Or navigate to a specific page
+    // window.location.href = 'market-price.html';
   });
 
   // Add loading state for images
@@ -137,3 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 }); 
+document.querySelector('.lang-btn').addEventListener('click', () => {
+  const langBtn = document.querySelector('.lang-text');
+  if (langBtn.textContent === 'EN') {
+      langBtn.textContent = 'BN';
+  } else {
+      langBtn.textContent = 'EN';
+  }
+});

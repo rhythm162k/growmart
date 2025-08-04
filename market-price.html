@@ -4,28 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Market Price - Growmart</title>
-  <link rel="stylesheet" href="market-price.css">
+  <link rel="stylesheet" href="css/market-price.css">
 </head>
 <body>
   <div class="container">
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <div class="status-icons">
-        <span class="time">9:15</span>
-        <span class="cellular"></span>
-        <span class="wifi"></span>
-        <span class="battery"></span>
-      </div>
-    </div>
-
     <!-- Header -->
     <div class="header">
-      <span class="logo">GrowMart</span>
-      <div class="language">
-        <img src="images/internet.svg" alt="Internet" class="icon">
-        <span>EN</span>
+      <div class="header-content">
+          <h1 class="logo">GrowMart</h1>
+          <div class="language-selector">
+          <button class="lang-btn">
+            <img src="images/internet-2.png" alt="Language" class="lang-icon">
+          </button>
+          <span class="lang-text">EN</span>
+          </div>
       </div>
     </div>
+    <div class="flip-horizontally right-arrow">
+        <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
+    </div>
+
 
     <!-- Main Content -->
     <main class="main-content">
@@ -39,7 +37,7 @@
 
       <!-- Super Shop Card -->
       <button class="market-card" data-market="super">
-        <img src="images/super-shop.png" alt="Super Shop" class="market-image">
+        <img src="images/supershop.png" alt="Super Shop" class="market-image">
         <div class="market-info">
           <span class="market-text">From Super Shop →</span>
         </div>
@@ -49,11 +47,11 @@
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
       <button class="nav-btn" data-page="sell">
-        <img src="images/shopping-bag.png" alt="Sell">
+        <img src="images/sell.png" alt="Sell">
         <span>Sell</span>
       </button>
       <button class="nav-btn active" data-page="price">
-        <img src="images/increase-2.png" alt="Price">
+        <img src="images/increase.png" alt="Price">
         <span>Price</span>
       </button>
       <button class="nav-btn" data-page="home">
@@ -65,12 +63,12 @@
         <span>Tips</span>
       </button>
       <button class="nav-btn" data-page="profile">
-        <img src="images/user.png" alt="Profile">
+        <img src="images/profile.png" alt="Profile">
         <span>Profile</span>
       </button>
     </nav>
   </div>
 
-  <script src="market-price.js"></script>
+  <script src="js/market-price.js"></script>
 </body>
 </html> 

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const shopName = this.querySelector('.shop-name').textContent;
       const price = this.querySelector('.price').textContent;
       
-      console.log('Super shop price card clicked:', shop, shopName, price);
+      console.log('Price card clicked:', shop, shopName, price);
       
       // Add selection animation
       this.classList.add('selecting');
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Export functions for use in other scripts
-  window.superShopPricesUtils = {
+  window.marketPricesUtils = {
     goBack: () => {
       window.history.back();
     },
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Track page load
   trackEvent('page_view', {
-    page: 'super_shop_prices',
+    page: 'market_prices',
     timestamp: new Date().toISOString()
   });
 
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const shopName = this.querySelector('.shop-name').textContent;
       const price = this.querySelector('.price').textContent;
       
-      trackEvent('super_shop_price_card_click', {
+      trackEvent('price_card_click', {
         shop: shop,
         shop_name: shopName,
         price: price,
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function updatePrices() {
     // This function can be called to update prices dynamically
     // For example, from an API or real-time data
-    console.log('Updating super shop prices...');
+    console.log('Updating prices...');
     
     // Example: Update prices every 30 seconds
     setInterval(() => {
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (newPriceText !== currentPrice) {
           card.querySelector('.price').textContent = newPriceText;
-          trackEvent('super_shop_price_update', {
+          trackEvent('price_update', {
             shop: shop,
             old_price: currentPrice,
             new_price: newPriceText,
@@ -340,3 +340,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Uncomment the line below to enable dynamic price updates
   // updatePrices();
 }); 
+document.querySelector('.back-btn').addEventListener('click', () => {
+  window.history.back();
+});
+
+document.querySelector('.lang-btn').addEventListener('click', () => {
+  const langBtn = document.querySelector('.lang-text');
+  if (langBtn.textContent === 'EN') {
+      langBtn.textContent = 'BN';
+  } else {
+      langBtn.textContent = 'EN';
+  }
+});
