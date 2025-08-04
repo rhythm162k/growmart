@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'growmart.html';
           break;
         case 'sell':
-          window.location.href = 'sell.html';
+          window.location.href = 'category-sell.html';
           break;
         case 'price':
-          // Already on price page
+          window.location.href = 'category.html';
           break;
         case 'tips':
           window.location.href = 'tips.html';

@@ -43,58 +43,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowMart - Log In</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <div class="top-bar">
-        <span class="time">10:49 PM +06</span>
-        <div class="status-icons">
-            <span class="signal"></span>
-            <span class="wifi"></span>
-            <span class="battery"></span>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="logo">GrowMart</h1>
+                <div class="language-selector">
+                <button class="lang-btn">
+                  <img src="images/internet-2.png" alt="Language" class="lang-icon">
+                </button>
+                <span class="lang-text">EN</span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="header">
-        <h1>GrowMart</h1>
-        <button class="lang-btn">EN</button>
-    </div>
-    <div class="content">
-        <h2>Log In</h2>
-        <p>Enter your emails and password</p>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="Afsar Hossen Shuvo">
+        <div class="flip-horizontally right-arrow">
+            <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+        <div class="content">
+            <h2>Log In</h2>
+            <p>Enter your emails and password</p>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="Afsar Hossen Shuvo">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+            <button class="submit-btn">Log In</button>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Singup</a></p>
         </div>
-        <p class="forgot-password"><a href="#">Forgot Password?</a></p>
-        <button class="submit-btn">Log In</button>
-        <p class="signup-link">Don't have an account? <a href="signup.html">Singup</a></p>
+        <nav class="bottom-nav">
+            <button class="nav-btn" data-page="sell">
+              <img src="images/sell.png" alt="Sell">
+              <span>Sell</span>
+            </button>
+            <button class="nav-btn active" data-page="price">
+              <img src="images/increase.png" alt="Price">
+              <span>Price</span>
+            </button>
+            <button class="nav-btn" data-page="home">
+              <img src="images/home.png" alt="Home">
+              <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="tips">
+              <img src="images/leaf.png" alt="Tips">
+              <span>Tips</span>
+            </button>
+            <button class="nav-btn" data-page="profile">
+              <img src="images/profile.png" alt="Profile">
+              <span>Profile</span>
+            </button>
+          </nav>
     </div>
-    <nav class="navbar">
-        <a href="#" class="nav-item" data-section="sell">
-            <span class="icon sell-icon"></span>
-            <span class="text">Sell</span>
-        </a>
-        <a href="#" class="nav-item" data-section="price">
-            <span class="icon price-icon"></span>
-            <span class="text">Price</span>
-        </a>
-        <a href="#" class="nav-item" data-section="home">
-            <span class="icon home-icon"></span>
-            <span class="text">Home</span>
-        </a>
-        <a href="#" class="nav-item" data-section="tips">
-            <span class="icon tips-icon"></span>
-            <span class="text">Tips</span>
-        </a>
-        <a href="#" class="nav-item" data-section="profile">
-            <span class="icon profile-icon"></span>
-            <span class="text">Profile</span>
-        </a>
-    </nav>
-    <script src="login.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
