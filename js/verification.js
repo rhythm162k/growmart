@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const codePlaceholder = document.getElementById('codePlaceholder');
     const nextButton = document.getElementById('nextButton');
     const resendCodeButton = document.getElementById('resendCode');
-    const rightArrow = document.querySelector('.right-arrow');
-    const languageSelector = document.querySelector('.language-selector');
 
     // Verification code input functionality
     verificationCodeInput.addEventListener('focus', function() {
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (i < 3) newPlaceholder += ' ';
             }
             codePlaceholder.textContent = newPlaceholder;
-            codePlaceholder.style.opacity = '0.3';
+            codePlaceholder.style.opacity = '0';
         }
     }
 
@@ -119,18 +117,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1500);
     });
 
-    // Right arrow functionality
-    rightArrow.addEventListener('click', function() {
-        // Navigate to next page or show menu
-        console.log('Right arrow clicked');
-        // Add your navigation logic here
+    document.querySelector('.back-btn').addEventListener('click', () => {
+        window.history.back();
     });
-
-    // Language selector functionality
-    languageSelector.addEventListener('click', function() {
-        console.log('Language selector clicked');
-        // Toggle language or show language selection modal
-        toggleLanguage();
+    
+    document.querySelector('.lang-btn').addEventListener('click', () => {
+        const langBtn = document.querySelector('.lang-text');
+        if (langBtn.textContent === 'EN') {
+            langBtn.textContent = 'BN';
+        } else {
+            langBtn.textContent = 'EN';
+        }
     });
 
     // Update next button state based on input
@@ -171,69 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 3000);
     }
-
-    // Toggle language function
-    function toggleLanguage() {
-        const langText = document.querySelector('.lang-text');
-        const currentLang = langText.textContent;
-        
-        // Toggle between EN and BN (or other languages)
-        if (currentLang === 'EN') {
-            langText.textContent = 'BN';
-            langText.style.color = '#53B175';
-        } else {
-            langText.textContent = 'EN';
-            langText.style.color = '#53B175';
-        }
-    }
-
-    // Add shake animation CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        
-        .next-button.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-        
-        .next-button.loading .next-icon {
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .code-display.focused {
-            transform: translateY(-2px);
-        }
-        
-        .code-display.focused .input-line {
-            background-color: #53B175;
-            height: 2px;
-        }
-        
-        .resend-code.loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-        
-        .resend-code.loading span {
-            animation: pulse 1s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-    `;
-    document.head.appendChild(style);
 
     // Initialize button state
     updateNextButtonState();

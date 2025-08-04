@@ -4,48 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowMart - Verification Code</title>
-    <link rel="stylesheet" href="verification.css">
+    <link rel="stylesheet" href="css/verification.css">
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=SF+Pro:wght@400;590&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- Top Status Bar -->
-        <div class="status-bar">
-            <div class="time">9:15</div>
-            <div class="status-icons">
-                <div class="cellular">
-                    <div class="signal-bar"></div>
-                    <div class="signal-bar"></div>
-                    <div class="signal-bar"></div>
-                    <div class="signal-bar"></div>
-                </div>
-                <div class="wifi">
-                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none">
-                        <path d="M10.5 0C7.5 0 4.8 1.2 3 3.3L10.5 12L18 3.3C16.2 1.2 13.5 0 10.5 0Z" fill="black"/>
-                        <path d="M10.5 3C8.7 3 7.2 3.8 6.3 5.1L10.5 10.5L14.7 5.1C13.8 3.8 12.3 3 10.5 3Z" fill="black"/>
-                        <path d="M10.5 6C9.6 6 9 6.6 9 7.5L10.5 9L12 7.5C12 6.6 11.4 6 10.5 6Z" fill="black"/>
-                    </svg>
-                </div>
-                <div class="battery">
-                    <div class="battery-outline"></div>
-                    <div class="battery-fill"></div>
-                    <div class="battery-tip"></div>
-                </div>
-            </div>
-        </div>
-
         <!-- Header -->
         <div class="header">
             <div class="header-content">
                 <h1 class="logo">GrowMart</h1>
                 <div class="language-selector">
-                    <img src="images/verification-language-icon.png" alt="Language" class="lang-icon">
-                    <span class="lang-text">EN</span>
+                <button class="lang-btn">
+                  <img src="images/internet-2.png" alt="Language" class="lang-icon">
+                </button>
+                <span class="lang-text">EN</span>
                 </div>
             </div>
-            <div class="right-arrow">
-                <img src="images/verification-right-arrow.png" alt="Next" class="arrow-icon">
-            </div>
+        </div>
+        <div class="flip-horizontally right-arrow">
+            <button class="back-btn"><img src="images/left-arrow.png" alt="Back" class="arrow-icon"></button>
         </div>
 
         <!-- Main Content -->
@@ -66,10 +43,6 @@
             </div>
         </div>
 
-        <!-- Verification Background -->
-        <div class="verification-bg">
-            <img src="images/verification-bg-26ef26.png" alt="Verification Background" class="bg-image">
-        </div>
 
         <!-- Resend Code -->
         <div class="resend-code" id="resendCode">
@@ -78,13 +51,13 @@
 
         <!-- Next Button -->
         <div class="next-button" id="nextButton">
-            <img src="images/verification-next-button.png" alt="Next" class="next-icon">
+            <img src="images/next.png" alt="Next" class="next-icon">
         </div>
 
         <!-- Bottom Line -->
         <div class="bottom-line"></div>
     </div>
 
-    <script src="verification.js"></script>
+    <script src="js/verification.js"></script>
 </body>
 </html> 
