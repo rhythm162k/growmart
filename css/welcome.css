@@ -37,9 +37,8 @@ body {
     z-index: 2;
     width: 100%;
     max-width: 480px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto 50px auto;
     border-radius: 0 0 32px 32px;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
     padding: clamp(24px, 8vw, 64px) clamp(8px, 5vw, 40px) clamp(16px, 6vw, 48px) clamp(8px, 5vw, 40px);
     display: flex;
     flex-direction: column;
@@ -102,6 +101,9 @@ body {
         border-radius: 0 0 16px 16px;
         min-height: 40vh;
     }
+    .background-blur {
+        filter: blur(18px) brightness(0.85);
+    }
 }
 
 /* Desktop enhancements */
@@ -121,11 +123,15 @@ body {
         font-size: 20px;
         max-width: 320px;
     }
+    .background-blur {
+        filter: blur(18px) brightness(0.85);
+    }
 }
 
 /* Make any inline images responsive */
 img, .responsive-img {
-    max-width: 100%;
+    max-width:100%;
     height: auto;
     display: block;
+    position: relative;
 } 
