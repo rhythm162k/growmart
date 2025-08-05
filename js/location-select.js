@@ -1,84 +1,101 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const districtSelect = document.getElementById('district');
   const areaSelect = document.getElementById('area');
   const submitBtn = document.querySelector('.submit-btn');
 
-  // Handle district selection
-  districtSelect.addEventListener('change', function() {
-    const selectedValue = this.value;
-    const selectedText = this.options[this.selectedIndex].text;
-    
-    if (selectedValue) {
-      console.log('Selected District:', selectedText);
-      // You can add additional logic here, like updating area options based on district
+  const upazilasByDistrict = {
+    dhaka: ['Dhanmondi', 'Gulshan', 'Mirpur', 'Uttara'],
+    mymensingh: ['Trishal', 'Muktagacha', 'Fulbaria'],
+    chittagong: ['Pahartali', 'Halishahar', 'Agrabad'],
+    sylhet: ['Beanibazar', 'Golapganj', 'Zakiganj'],
+    rajshahi: ['Boalia', 'Paba', 'Godagari'],
+    khulna: ['Daulatpur', 'Sonadanga', 'Khalishpur'],
+    barisal: ['Kotwali', 'Bakerganj', 'Muladi'],
+    rangpur: ['Gangachara', 'Pirganj', 'Badarganj']
+  };
+
+  function populateAreaOptions(districtKey) {
+    areaSelect.innerHTML = '<option value="">Select Area</option>';
+    const areas = upazilasByDistrict[districtKey.toLowerCase()];
+    if (areas) {
+      areas.forEach(area => {
+        const option = document.createElement('option');
+        option.value = area.toLowerCase();
+        option.textContent = area;
+        areaSelect.appendChild(option);
+      });
     }
+  }
+
+  // Auto-detect location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async function (position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+          const data = await response.json();
+
+          const detectedDistrict = data.address?.state?.toLowerCase() || '';
+          console.log("Detected district:", detectedDistrict);
+
+          // Match and auto-select district dropdown
+          for (let option of districtSelect.options) {
+            if (detectedDistrict.includes(option.value)) {
+              option.selected = true;
+              populateAreaOptions(option.value);
+              break;
+            }
+          }
+        } catch (err) {
+          console.error("Reverse geocoding error:", err);
+        }
+      },
+      function (error) {
+        console.error("Geolocation error:", error.message);
+      }
+    );
+  }
+
+  // Update area list when district is manually changed
+  districtSelect.addEventListener('change', function () {
+    const selectedDistrict = this.value;
+    populateAreaOptions(selectedDistrict);
   });
 
-  // Handle area selection
-  areaSelect.addEventListener('change', function() {
-    const selectedValue = this.value;
-    const selectedText = this.options[this.selectedIndex].text;
-    
-    if (selectedValue) {
-      console.log('Selected Area:', selectedText);
-    }
-  });
-
-  // Handle form submission
-  submitBtn.addEventListener('click', function() {
+  // Form submission
+  submitBtn.addEventListener('click', function () {
     const district = districtSelect.value;
     const area = areaSelect.value;
-    
-    // Basic validation
+
     if (!district) {
       alert('Please select a district');
-      districtSelect.focus();
       return;
     }
-    
     if (!area) {
-      alert('Please select an area type');
-      areaSelect.focus();
+      alert('Please select an area');
       return;
     }
-    
-    // Success message
+
     const districtText = districtSelect.options[districtSelect.selectedIndex].text;
     const areaText = areaSelect.options[areaSelect.selectedIndex].text;
-    
-    console.log('Location selected:', {
+
+    // Save location to localStorage
+    const locationData = {
       district: districtText,
       area: areaText
-    });
-    
-    // You can add navigation or API call here
+    };
+    localStorage.setItem('userLocation', JSON.stringify(locationData));
+
     alert(`Location set to: ${districtText} - ${areaText}`);
-    
-    // Optional: Navigate to next page or update UI
-    // window.location.href = 'next-page.html';
-  });
 
-  // Add visual feedback for dropdown interactions
-  const dropdowns = document.querySelectorAll('.dropdown-select');
-  
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('focus', function() {
-      this.parentElement.style.transform = 'scale(1.02)';
-    });
-    
-    dropdown.addEventListener('blur', function() {
-      this.parentElement.style.transform = 'scale(1)';
-    });
+    // Optional: Redirect to profile
+    // window.location.href = 'profile.html';
   });
+});
 
-  // Optional: Add keyboard navigation
-  submitBtn.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      this.click();
-    }
-  });
-}); 
 document.querySelector('.back-btn').addEventListener('click', () => {
   window.history.back();
 });

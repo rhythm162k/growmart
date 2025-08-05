@@ -219,4 +219,20 @@
     color: #000000;
     text-align: center;
   }
+  .location-box {
+    margin: 16px auto 16px auto;
+    padding: 16px;
+    border-radius: 25px;
+    background-color: #f4f4f4;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .location-box hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 8px 0;
+  }
   

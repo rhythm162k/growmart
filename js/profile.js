@@ -13,12 +13,24 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
 
 
 window.addEventListener('load', () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-        document.getElementById('profileName').textContent = user.username;
-        document.getElementById('profilePhone').textContent = '+880123456789'; // Mock phone number
-    }
+  // Load user data
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user) {
+    document.getElementById('profileName').textContent = user.username;
+    document.getElementById('profilePhone').textContent = user.phone; 
+  }
+
+  // Load location data
+  const location = JSON.parse(localStorage.getItem('userLocation'));
+  if (location) {
+    document.getElementById('profileDistrict').textContent = location.district;
+    document.getElementById('profileArea').textContent = location.area;
+  } else {
+    const locationBox = document.getElementById('locationBox');
+    if (locationBox) locationBox.style.display = 'none';
+  }
 });
+
 
 document.querySelector('.logout-btn').addEventListener('click', () => {
     localStorage.removeItem('user');

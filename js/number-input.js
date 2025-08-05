@@ -53,18 +53,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const number = mobileNumberInput.value.trim();
         
         if (number.length >= 10) {
-            // Valid mobile number - proceed to next step
-            console.log('Mobile number entered:', number);
-            
+            // Store user data (name might already be stored elsewhere)
+            let user = JSON.parse(localStorage.getItem('user')) || {};
+            user.phone = '+880' + number; // Add country code
+            localStorage.setItem('user', JSON.stringify(user));
+        
             // Add loading state
             this.classList.add('loading');
             
             // Simulate API call or navigation
             setTimeout(() => {
-                // Here you would typically navigate to the next page
-                // For now, we'll just show a success message
                 alert('Mobile number verified! Proceeding to next step...');
                 this.classList.remove('loading');
+                // Redirect if needed:
+                // window.location.href = 'profile.html';
             }, 1000);
         } else {
             // Invalid mobile number
