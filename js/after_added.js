@@ -12,7 +12,7 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
 });
 
 document.querySelector('.add-btn').addEventListener('click', () => {
-    window.location.href = 'add-product.html';
+    window.location.href = 'category-sell.html';
 });
 
 window.addEventListener('load', () => {
@@ -58,7 +58,7 @@ const navButtons = document.querySelectorAll('.nav-btn');
           window.location.href = 'category-sell.html';
           break;
         case 'price':
-          window.location.href = 'category.html';
+          window.location.href = 'market-prices.html';
           break;
         case 'tips':
           window.location.href = 'tips.html';

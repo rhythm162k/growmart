@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'category-sell.html';
           break;
         case 'price':
-          window.location.href = 'category.html';
+          window.location.href = 'market-prices.html';
           break;
         case 'tips':
           window.location.href = 'tips.html';
@@ -172,3 +172,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 }); 
+
+document.querySelectorAll('.category-card').forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.getAttribute('data-category');
+    const image = button.querySelector('img').getAttribute('src');
+
+    // Save category + image to localStorage
+    localStorage.setItem('selectedCategory', category);
+    localStorage.setItem('selectedCategoryImage', image);
+
+    // Navigate to add-product page
+    window.location.href = 'add-product.html';
+  });
+});

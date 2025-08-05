@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'category-sell.html';
           break;
         case 'price':
-          window.location.href = 'category.html';
+          window.location.href = 'market-prices.html';
           break;
         case 'tips':
           window.location.href = 'tips.html';

@@ -11,39 +11,64 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
     }
 });
 
-document.querySelector('.add-image-btn').addEventListener('click', () => {
-    document.getElementById('imageInput').click();
+// Show file picker when "+" button is clicked
+const imageInput = document.getElementById('imageInput');
+const imagePreview = document.getElementById('imagePreview');
+const addImageBtn = document.querySelector('.add-image-btn');
+
+// Show file picker when "+" button is clicked
+addImageBtn.addEventListener('click', () => {
+  imageInput.click();
 });
 
-document.getElementById('imageInput').addEventListener('change', (e) => {
-    if (e.target.files.length > 0) {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.querySelector('.image-upload').innerHTML = '<img src="' + e.target.result + '" style="width: 50px; height: 50px; margin-right: 10px;">';
-        };
-        reader.readAsDataURL(file);
+let imageData = "";
+imageInput.addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      imageData = e.target.result;
+
+      // Show the image in place of the "+" button
+      imagePreview.src = imageData;
+      imagePreview.style.display = 'block';
+      addImageBtn.style.display = 'none'; // hide the "+" button
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+  document.querySelector('.submit-btn').addEventListener('click', () => {
+    const quantityInput = document.getElementById('quantity');
+    const quantity = parseInt(quantityInput.value);
+
+    const category = localStorage.getItem('selectedCategory');
+    const categoryImage = localStorage.getItem('selectedCategoryImage');
+
+    if (!quantity || quantity <= 0) {
+      alert("Please enter a valid quantity.");
+      return;
     }
-});
 
-document.querySelector('.submit-btn').addEventListener('click', () => {
-    const image = document.querySelector('.image-upload img');
-    const quantity = document.getElementById('quantity').value;
+    const product = {
+      category: category || 'Unknown',
+      image: imageData || categoryImage || 'default.jpg',
+      quantity: quantity
+    };
 
-    if (image && quantity) {
-        const product = {
-            image: image.src,
-            quantity: quantity
-        };
-        let products = JSON.parse(localStorage.getItem('products')) || [];
-        products.push(product);
-        localStorage.setItem('products', JSON.stringify(products));
+    let products = JSON.parse(localStorage.getItem('products')) || [];
 
-        window.location.href = 'after_added.html';
-    } else {
-        alert('Please fill all fields including image');
+    products.push(product);
+    try {
+      localStorage.setItem('products', JSON.stringify(products));
+    } catch (e) {
+      console.error("Storage full:", e);
+      alert("Can't add more products. Storage full.");
+      return;
     }
-});
+
+    window.location.href = 'after_added.html';
+  });
 
 const navButtons = document.querySelectorAll('.nav-btn');
 // Handle navigation buttons
@@ -68,7 +93,7 @@ const navButtons = document.querySelectorAll('.nav-btn');
           window.location.href = 'category-sell.html';
           break;
         case 'price':
-          window.location.href = 'category.html';
+          window.location.href = 'market-prices.html';
           break;
         case 'tips':
           window.location.href = 'tips.html';
