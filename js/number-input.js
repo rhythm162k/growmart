@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Mobile number verified! Proceeding to next step...');
                 this.classList.remove('loading');
                 // Redirect if needed:
-                // window.location.href = 'profile.html';
+                window.location.href = 'verification.html';
             }, 1000);
         } else {
             // Invalid mobile number

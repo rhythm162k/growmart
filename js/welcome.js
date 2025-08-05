@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', () => {
             // Redirect to growmart.html when the button is clicked
-            window.location.href = 'growmart.html';
+            window.location.href = 'location-select.html';
         });
     } else {
         // Log an error if the button is not found, useful for debugging

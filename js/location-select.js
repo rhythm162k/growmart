@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     alert(`Location set to: ${districtText} - ${areaText}`);
 
     // Optional: Redirect to profile
-    // window.location.href = 'profile.html';
+    window.location.href = 'growmart.html';
   });
 });
 

@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // For now, we'll just show a success message
                 alert('Verification code verified! Proceeding to next step...');
                 this.classList.remove('loading');
+                window.location.href = 'login.html';
             }, 1000);
         } else {
             // Invalid verification code
