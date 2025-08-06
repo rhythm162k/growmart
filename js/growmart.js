@@ -129,5 +129,8 @@ const navButtons = document.querySelectorAll('.nav-btn');
     });
   });
   document.querySelector('.see-more').addEventListener('click', function() {
-    window.location.href = 'category.html'; 
+    window.location.href = 'market-prices.html'; 
+  });
+  document.querySelector('.learn-more').addEventListener('click', function() {
+    window.location.href = 'tips.html'; 
   });
