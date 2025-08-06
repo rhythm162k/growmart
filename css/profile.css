@@ -14,6 +14,8 @@
   }
   
   .container {
+    display: flex;
+    align-items: center;
     max-width: 393px;
     margin: 0 auto;
     width: 100%;
@@ -111,8 +113,12 @@
   
 
 .content {
-    padding: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 .profile-info {
@@ -137,7 +143,7 @@
 
 .logout-btn {
     display: block;
-    width: 100%;
+    width: 75%;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
@@ -145,6 +151,7 @@
     border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .logout-btn:hover {
@@ -264,4 +271,22 @@
     object-fit: cover;
     border-radius: 50%;
     display: block;
+}
+.my-listing-btn {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.my-listing-btn:hover {
+  background-color: #45a049;
+}
+.right-arrow{
+  margin-right: auto;
 }

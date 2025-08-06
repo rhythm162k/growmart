@@ -161,3 +161,7 @@ const navButtons = document.querySelectorAll('.nav-btn');
       }
     });
   });
+  document.getElementById('myListingBtn').addEventListener('click', function () {
+    window.location.href = 'after_added.html';
+  });
+  
