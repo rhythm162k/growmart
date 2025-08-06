@@ -17,9 +17,13 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
 
     if (storedUser && storedUser.username === username && storedUser.password === password) {
-        alert(`Logged in as ${username}!`);
-        window.location.href = 'profile.html'; // Redirect to profile page after login
-    } else {
+      // Save login session in sessionStorage
+      sessionStorage.setItem('user', JSON.stringify(storedUser));
+      
+      alert(`Logged in as ${username}!`);
+      window.location.href = 'profile.html'; // Redirect to profile page after login
+    }
+    else {
         alert('Invalid username or password');
     }
 });

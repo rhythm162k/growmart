@@ -14,7 +14,7 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
 
 window.addEventListener('load', () => {
   // Load user data
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
   if (user) {
     document.getElementById('profileName').textContent = user.username;
     document.getElementById('profilePhone').textContent = user.phone; 
