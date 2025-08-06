@@ -13,14 +13,25 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
 
 
 window.addEventListener('load', () => {
-  // Load user data
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
+  const nameEl = document.getElementById('profileName');
+  const phoneEl = document.getElementById('profilePhone');
+  const authButton = document.getElementById('authButton');
+
   if (user) {
-    document.getElementById('profileName').textContent = user.username;
-    document.getElementById('profilePhone').textContent = user.phone; 
+    nameEl.textContent = user.username;
+    phoneEl.textContent = user.phone;
+
+    nameEl.style.display = 'block';
+    phoneEl.style.display = 'block';
+    authButton.textContent = 'Logout';
+  } else {
+    nameEl.style.display = 'none';
+    phoneEl.style.display = 'none';
+    authButton.textContent = 'Signup/Login';
   }
 
-  // Load location data
+  // Handle location display (keep this part if you use location)
   const location = JSON.parse(localStorage.getItem('userLocation'));
   if (location) {
     document.getElementById('profileDistrict').textContent = location.district;
@@ -28,6 +39,20 @@ window.addEventListener('load', () => {
   } else {
     const locationBox = document.getElementById('locationBox');
     if (locationBox) locationBox.style.display = 'none';
+  }
+});
+
+// Handle button click: either logout or go to signup
+document.getElementById('authButton').addEventListener('click', () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user) {
+    // Logging out
+    localStorage.removeItem('user');
+    window.location.reload(); // Refresh to update UI
+  } else {
+    // Not logged in, go to signup
+    window.location.href = 'signup.html';
   }
 });
 
