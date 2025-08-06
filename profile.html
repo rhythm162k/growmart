@@ -64,10 +64,14 @@
 
         <div class="content">
             <div class="profile-info">
-                <img src="path/to/profile-image.jpg" alt="Profile Image" class="profile-image">
+                <div class="profile-image-container" id="imageContainer">
+                  <input type="file" id="imageUpload" accept="image/*" hidden>
+                  <button id="uploadBtn" class="upload-btn">Add your profile image</button>
+                  <img id="profileImage" class="profile-image" style="display: none;" />
+                </div>
                 <div class="profile-details">
-                    <h2 id="profileName">Md Sami-El Bashar Rhythm</h2>
-                    <p id="profilePhone">+880123456789</p>
+                  <h2 id="profileName">Md Sami-El Bashar Rhythm</h2>
+                  <p id="profilePhone">+880123456789</p>
                 </div>
             </div>
             <div class="location-box" id="locationBox">

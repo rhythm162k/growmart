@@ -85,16 +85,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add hover effects for navigation buttons
-  navButtons.forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-      this.style.transform = 'scale(1.05)';
-    });
-
-    btn.addEventListener('mouseleave', function() {
-      this.style.transform = 'scale(1)';
-    });
+// Add hover effects for better UX
+navButtons.forEach(btn => {
+  btn.addEventListener('mouseenter', function() {
+    this.style.transform = 'scale(1.05)';
   });
+  
+  btn.addEventListener('mouseleave', function() {
+    this.style.transform = 'scale(1)';
+  });
+});
+
+// Add touch support for mobile
+navButtons.forEach(btn => {
+  let touchStartY = 0;
+  let touchEndY = 0;
+  
+  btn.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+  });
+  
+  btn.addEventListener('touchend', function(e) {
+    touchEndY = e.changedTouches[0].clientY;
+    
+    // Check if it's a tap (not a scroll)
+    if (Math.abs(touchStartY - touchEndY) < 10) {
+      this.click();
+    }
+  });
+});
+
 
   // Add touch support for mobile
   navButtons.forEach(btn => {

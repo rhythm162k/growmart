@@ -11,65 +11,6 @@ document.querySelector('.lang-btn').addEventListener('click', () => {
     }
 });
 
-
-window.addEventListener('load', () => {
-  // Load user data
-  const user = JSON.parse(sessionStorage.getItem('user'));
-  if (user) {
-    document.getElementById('profileName').textContent = user.username;
-    document.getElementById('profilePhone').textContent = user.phone; 
-  }
-
-  // Load location data
-  const location = JSON.parse(localStorage.getItem('userLocation'));
-  if (location) {
-    document.getElementById('profileDistrict').textContent = location.district;
-    document.getElementById('profileArea').textContent = location.area;
-  } else {
-    const locationBox = document.getElementById('locationBox');
-    if (locationBox) locationBox.style.display = 'none';
-  }
-});
-
-const imageUpload = document.getElementById('imageUpload');
-const uploadBtn = document.getElementById('uploadBtn');
-const profileImage = document.getElementById('profileImage');
-
-// Show image if already set in session
-const savedImage = sessionStorage.getItem('profileImage');
-if (savedImage) {
-    profileImage.src = savedImage;
-    profileImage.style.display = 'block';
-    uploadBtn.style.display = 'none';
-}
-
-// Click button to trigger file input
-uploadBtn.addEventListener('click', () => {
-    imageUpload.click();
-});
-
-// Handle image selection
-imageUpload.addEventListener('change', function () {
-    const file = this.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const imageData = e.target.result;
-        profileImage.src = imageData;
-        profileImage.style.display = 'block';
-        uploadBtn.style.display = 'none';
-
-        sessionStorage.setItem('profileImage', imageData);
-    };
-    reader.readAsDataURL(file);
-});
-
-
-document.querySelector('.logout-btn').addEventListener('click', () => {
-    localStorage.removeItem('user');
-    window.location.href = 'login.html';
-});
 const navButtons = document.querySelectorAll('.nav-btn');
 // Handle navigation buttons
   navButtons.forEach(btn => {
