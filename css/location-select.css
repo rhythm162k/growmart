@@ -24,36 +24,6 @@ body {
   margin-top: 130px;
 }
 
-/* Top Bar */
-.top-bar {
-  background: #fff;
-  padding: 8px 16px 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.status-icons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: 590;
-}
-
-.status-icons .time {
-  margin-right: 8px;
-}
-
-.status-icons .cellular,
-.status-icons .wifi,
-.status-icons .battery {
-  width: 18px;
-  height: 10px;
-  background: #000;
-  border-radius: 2px;
-  opacity: 0.7;
-}
-
 /* Header */
 .header {
   position: fixed;
