@@ -21,7 +21,7 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
       sessionStorage.setItem('user', JSON.stringify(storedUser));
       
       alert(`Logged in as ${username}!`);
-      window.location.href = 'profile.html'; // Redirect to profile page after login
+      window.location.href = 'location-select.html'; // Redirect to profile page after login
     }
     else {
         alert('Invalid username or password');
