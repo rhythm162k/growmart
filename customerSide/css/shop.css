@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'SF Pro', 'Inter', 'Alata', sans-serif;
+    background: #FCFCFC;
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    max-width: 393px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 130px;
+  }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 29px 31px;
+    border-bottom: 1px solid #f0f0f0;
+    z-index: 1000;
+  
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+  }
+  
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      max-width: 430px;
+    }
+    
+    .logo {
+      font-family: 'Alata', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 33px;
+      color: #000000;
+      text-align: center;
+    }
+    
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #53B175;
+    }
+    
+    .lang-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+    }
+    
+    .language-selector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    
+    .lang-text {
+      font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      color: #53B175;
+    }
+    
+    .right-arrow {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .arrow-icon:hover {
+      transform: scale(1.1);
+    }  
+  
+  .lang-btn, .back-btn{
+    background-color: white;
+    border: 0;
+  }
+  
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    background: #4CAF50;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.product-item img {
+    width: 50px;
+    height: 50px;
+    background: #ccc;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.product-item .details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.product-item .details div {
+    margin: 2px 0;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 393px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    gap: 25px;
+  }
+  
+  .nav-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #000;
+    font-family: 'Alata', sans-serif;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 35px;
+  }
+  
+  .nav-btn:hover {
+    background: rgba(83, 177, 117, 0.1);
+  }
+  
+  .nav-btn.active {
+    color: #53B175;
+    background-color: rgba(83, 177, 117, 0.2);
+  }
+  
+  .nav-btn.active span {
+    color: #53B175;
+  }
+  
+  .nav-btn.active img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  }
+  
+  .nav-btn img {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 2px;
+    transition: filter 0.2s;
+  }
+  
+  .nav-btn span {
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #000000;
+    text-align: center;
+  }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Role - GrowMart</title>
+  <link rel="stylesheet" href="choose-role.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="container">
+        <div class="header">
+          <div class="header-content">
+            <h1 class="logo">GrowMart</h1>
+            <div class="language-selector">
+              <button class="lang-btn">
+                <img src="images/internet-2.png" alt="Language" class="lang-icon">
+              </button>
+              <span class="lang-text">EN</span>
+            </div>
+          </div>
+        </div>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <h2 class="title">Are you a Farmer or a Customer?</h2>
+      <div class="role-buttons">
+        <button class="role-btn" id="farmerBtn">Farmer</button>
+        <button class="role-btn" id="customerBtn">Customer</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('farmerBtn').addEventListener('click', () => {
+      window.location.href = 'welcome.html';
+    });
+
+    document.getElementById('customerBtn').addEventListener('click', () => {
+      window.location.href = 'customer.html';
+    });
+
+    // Optional: Language toggle (like your others)
+    document.querySelector('.lang-btn').addEventListener('click', () => {
+      const langText = document.querySelector('.lang-text');
+      langText.textContent = langText.textContent === 'EN' ? 'BN' : 'EN';
+    });
+  </script>
+</body>
+</html>
