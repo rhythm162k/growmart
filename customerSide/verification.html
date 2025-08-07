@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowMart - Verification Code</title>
+    <link rel="stylesheet" href="css/verification.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=SF+Pro:wght@400;590&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="logo">GrowMart</h1>
+                <div class="language-selector">
+                <button class="lang-btn">
+                  <img src="../images/internet-2.png" alt="Language" class="lang-icon">
+                </button>
+                <span class="lang-text">EN</span>
+                </div>
+            </div>
+        </div>
+        <div class="flip-horizontally right-arrow">
+            <button class="back-btn"><img src="../images/left-arrow.png" alt="Back" class="arrow-icon"></button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="input-section">
+                <h2 class="title">Enter your 4-digit code</h2>
+                <p class="subtitle">Code</p>
+                
+                <div class="code-input-container">
+                    <div class="code-display">
+                        <span class="code-placeholder" id="codePlaceholder">- - - -</span>
+                        <input type="text" id="verificationCode" maxlength="4" inputmode="numeric" autocomplete="one-time-code">
+                    </div>
+                    <div class="input-line"></div>
+                </div>
+                
+                <div class="separator-line"></div>
+            </div>
+        </div>
+
+
+        <!-- Resend Code -->
+        <div class="resend-code" id="resendCode">
+            <span>Resend Code</span>
+        </div>
+
+        <!-- Next Button -->
+        <div class="next-button" id="nextButton">
+            <img src="../images/next.png" alt="Next" class="next-icon">
+        </div>
+
+        <!-- Bottom Line -->
+        <div class="bottom-line"></div>
+    </div>
+
+    <script src="js/verification.js"></script>
+</body>
+</html> 

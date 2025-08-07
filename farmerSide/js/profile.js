@@ -92,9 +92,10 @@ imageUpload.addEventListener('change', function () {
 
 
 document.querySelector('.logout-btn').addEventListener('click', () => {
-    localStorage.removeItem('user');
-    window.location.href = 'login.html';
+  localStorage.removeItem('user');
+  window.location.href = '../choose-role.html';
 });
+
 const navButtons = document.querySelectorAll('.nav-btn');
 // Handle navigation buttons
   navButtons.forEach(btn => {
