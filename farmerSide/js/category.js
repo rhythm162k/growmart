@@ -2,14 +2,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
   window.history.back();
 });
 
-document.querySelector('.lang-btn').addEventListener('click', () => {
-  const langBtn = document.querySelector('.lang-text');
-  if (langBtn.textContent === 'EN') {
-      langBtn.textContent = 'BN';
-  } else {
-      langBtn.textContent = 'EN';
-  }
-});
 document.addEventListener('DOMContentLoaded', function() {
   const categoryCards = document.querySelectorAll('.category-card');
   const navButtons = document.querySelectorAll('.nav-btn');

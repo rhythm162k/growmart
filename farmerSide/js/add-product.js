@@ -2,15 +2,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
     window.history.back();
 });
 
-document.querySelector('.lang-btn').addEventListener('click', () => {
-    const langBtn = document.querySelector('.lang-text');
-    if (langBtn.textContent === 'EN') {
-        langBtn.textContent = 'BN';
-    } else {
-        langBtn.textContent = 'EN';
-    }
-});
-
 // Show file picker when "+" button is clicked
 const imageInput = document.getElementById('imageInput');
 const imagePreview = document.getElementById('imagePreview');

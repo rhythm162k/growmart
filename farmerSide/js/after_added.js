@@ -2,15 +2,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
     window.history.back();
 });
 
-document.querySelector('.lang-btn').addEventListener('click', () => {
-    const langBtn = document.querySelector('.lang-text');
-    if (langBtn.textContent === 'EN') {
-        langBtn.textContent = 'BN';
-    } else {
-        langBtn.textContent = 'EN';
-    }
-});
-
 document.querySelector('.add-btn').addEventListener('click', () => {
     window.location.href = 'category-sell.html';
 });

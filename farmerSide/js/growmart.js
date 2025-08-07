@@ -1,11 +1,3 @@
-document.querySelector('.lang-btn').addEventListener('click', () => {
-  const langBtn = document.querySelector('.lang-text');
-  if (langBtn.textContent === 'EN') {
-      langBtn.textContent = 'BN';
-  } else {
-      langBtn.textContent = 'EN';
-  }
-});
 document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('.ad-slide');
   const dots = document.querySelectorAll('.ad-nav .dot');
