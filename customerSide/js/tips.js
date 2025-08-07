@@ -2,15 +2,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
     window.history.back();
 });
 
-document.querySelector('.lang-btn').addEventListener('click', () => {
-    const langBtn = document.querySelector('.lang-text');
-    if (langBtn.textContent === 'EN') {
-        langBtn.textContent = 'BN';
-    } else {
-        langBtn.textContent = 'EN';
-    }
-});
-
 const navButtons = document.querySelectorAll('.nav-btn');
 // Handle navigation buttons
   navButtons.forEach(btn => {

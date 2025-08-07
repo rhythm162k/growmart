@@ -121,15 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.back-btn').addEventListener('click', () => {
         window.history.back();
     });
-    
-    document.querySelector('.lang-btn').addEventListener('click', () => {
-        const langBtn = document.querySelector('.lang-text');
-        if (langBtn.textContent === 'EN') {
-            langBtn.textContent = 'BN';
-        } else {
-            langBtn.textContent = 'EN';
-        }
-    });
 
     // Update next button state based on input
     function updateNextButtonState() {
