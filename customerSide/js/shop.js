@@ -27,22 +27,12 @@ window.addEventListener('load', () => {
       <div class="details">
           <div><strong>Category:</strong> ${product.category || category}</div>
           <div><strong>Quantity:</strong> ${product.quantity}</div>
-          <button class="delete-btn" data-index="${index}">Delete</button>
+          <div><strong>Contact:</strong> ${product.phone || 'N/A'}</div>
+          ${product.phone ? `<button class="call-btn" onclick="window.location.href='tel:${product.phone}'">Call Now</button>` : ''}
       </div>
     `;
     productList.appendChild(productItem);
-  });
-
-  // Attach delete logic AFTER the products are rendered
-  document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', function () {
-      const index = parseInt(this.getAttribute('data-index'));
-      let updatedProducts = JSON.parse(localStorage.getItem('products')) || [];
-      updatedProducts.splice(index, 1); // remove selected product
-      localStorage.setItem('products', JSON.stringify(updatedProducts));
-      location.reload(); // Reload the page to update the list
-    });
-  });
+  });  
 });
 
 const navButtons = document.querySelectorAll('.nav-btn');

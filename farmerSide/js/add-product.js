@@ -38,37 +38,52 @@ imageInput.addEventListener('change', function () {
   }
 });
 
-  document.querySelector('.submit-btn').addEventListener('click', () => {
-    const quantityInput = document.getElementById('quantity');
-    const quantity = parseInt(quantityInput.value);
+document.querySelector('.submit-btn').addEventListener('click', () => {
+  const quantityInput = document.getElementById('quantity');
+  const quantity = parseInt(quantityInput.value);
 
-    const category = localStorage.getItem('selectedCategory');
-    const categoryImage = localStorage.getItem('selectedCategoryImage');
+  const phoneInput = document.getElementById('phone');
+  const phone = phoneInput.value.trim();
 
-    if (!quantity || quantity <= 0) {
-      alert("Please enter a valid quantity.");
-      return;
-    }
+  const category = localStorage.getItem('selectedCategory');
+  const categoryImage = localStorage.getItem('selectedCategoryImage');
 
-    const product = {
-      category: category || 'Unknown',
-      image: imageData || categoryImage || 'default.jpg',
-      quantity: quantity
-    };
+  // ✅ Check: image, quantity, phone
+  if (!imageData && !categoryImage) {
+    alert("Please upload an image.");
+    return;
+  }
 
-    let products = JSON.parse(localStorage.getItem('products')) || [];
+  if (!quantity || quantity <= 0) {
+    alert("Please enter a valid quantity.");
+    return;
+  }
 
-    products.push(product);
-    try {
-      localStorage.setItem('products', JSON.stringify(products));
-    } catch (e) {
-      console.error("Storage full:", e);
-      alert("Can't add more products. Storage full.");
-      return;
-    }
+  if (!/^01[0-9]{9}$/.test(phone)) {
+    alert('Please enter a valid Bangladeshi phone number (e.g., 017xxxxxxxx)');
+    return;
+  }
 
-    window.location.href = 'after_added.html';
-  });
+  const product = {
+    category: category || 'Unknown',
+    image: imageData || categoryImage || 'default.jpg',
+    quantity: quantity,
+    phone: phone
+  };
+
+  let products = JSON.parse(localStorage.getItem('products')) || [];
+
+  products.push(product);
+  try {
+    localStorage.setItem('products', JSON.stringify(products));
+  } catch (e) {
+    console.error("Storage full:", e);
+    alert("Can't add more products. Storage full.");
+    return;
+  }
+
+  window.location.href = 'after_added.html';
+});
 
 const navButtons = document.querySelectorAll('.nav-btn');
 // Handle navigation buttons

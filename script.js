@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
       splash.style.transform = 'scale(1.05)';
   
       setTimeout(() => {
-        window.location.href = "farmerSide/welcome.html"; 
+        window.location.href = "choose-role.html"; 
       }, 500);
     }, 400);
   });
