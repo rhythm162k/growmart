@@ -6,7 +6,7 @@
   
   body {
     font-family: 'SF Pro', 'Inter', 'Alata', sans-serif;
-    background: #FCFCFC;
+    background: white;
     color: #000000;
     min-height: 100vh;
     display: flex;
@@ -124,16 +124,34 @@
   }
   
   @media (min-width: 600px) {
-    .main-content {
+    .main-content, .role {
       max-width: 430px;
       margin: 50 auto;
     }
   }
   
   @media (max-width: 430px) {
-    .main-content {
+    .main-content, .role {
         margin: 10px;
         text-align: center;
         max-width: 100vw;
     }
   } 
+
+  .role{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1; 
+    pointer-events: none; 
+    margin-bottom: 20px;
+  }
