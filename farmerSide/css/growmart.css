@@ -325,6 +325,13 @@ main.scrollable {
   text-align: left;
   color: #fff;
 }
+.weather img {
+  height: 50px;
+}
+.weatherHead{
+  display: flex;
+  justify-content: space-between;
+}
 .weather-card {
   display: flex;
   flex-direction: column;

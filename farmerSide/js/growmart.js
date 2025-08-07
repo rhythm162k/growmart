@@ -126,3 +126,30 @@ const navButtons = document.querySelectorAll('.nav-btn');
   document.querySelector('.learn-more').addEventListener('click', function() {
     window.location.href = 'tips.html'; 
   });
+  
+  const locationData = JSON.parse(localStorage.getItem('userLocation'));
+  const district = locationData?.district || "Dhaka"; // Default fallback
+
+  async function fetchWeather(city) {
+    try {
+      const apiKey = '2b218c74fdc64e11b9893907240305'; 
+      const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
+      const data = await response.json();
+
+      document.getElementById('weatherTemp').textContent = `${data.current.temp_c}°`;
+      document.getElementById('weatherDay').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+      document.getElementById('weatherLocation').textContent = `${data.location.country}, ${data.location.name}`;
+
+      document.getElementById('weatherUpdated').textContent = `Last updated ${data.current.last_updated.split(' ')[1]}`;
+      document.getElementById('weatherCondition').textContent = data.current.condition.text;
+      document.getElementById('weatherWind').textContent = `${data.current.wind_kph} km/h`;
+      document.getElementById('weatherHumidity').textContent = `${data.current.humidity}%`;
+      document.getElementById('weatherRange').textContent = `H ${data.forecast?.forecastday?.[0]?.day?.maxtemp_c || '--'}° L ${data.forecast?.forecastday?.[0]?.day?.mintemp_c || '--'}°`;
+
+    } catch (error) {
+      console.error("Failed to fetch weather:", error);
+      document.getElementById('weatherLocation').textContent = "Unavailable";
+    }
+  }
+
+  fetchWeather(district);

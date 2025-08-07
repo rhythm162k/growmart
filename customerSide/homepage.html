@@ -69,19 +69,22 @@
         <button class="learn-more">Learn More →</button>
       </section>
       <section class="weather">
-        <h2>Weather</h2>
+        <div class="weatherHead">
+          <h2>Weather</h2>
+          <img src="../images/weather.png">
+        </div>
         <div class="weather-card">
           <div class="weather-main">
-            <span class="temp">26°</span>
-            <span class="day">Friday</span>
-            <span class="location">USA, New York</span>
+            <span class="temp" id="weatherTemp">--°</span>
+            <span class="day" id="weatherDay">--</span>
+            <span class="location" id="weatherLocation">Loading...</span>
           </div>
-          <div class="weather-details">
-            <span>Last updated 11:45</span>
-            <span>Sunny</span>
-            <span>28 km/h</span>
-            <span>42%</span>
-            <span>H 30° L 20°</span>
+          <div class="weather-details" id="weatherDetails">
+            <span id="weatherUpdated">Last updated --:--</span>
+            <span id="weatherCondition">--</span>
+            <span id="weatherWind">-- km/h</span>
+            <span id="weatherHumidity">--%</span>
+            <span id="weatherRange">H --° L --°</span>
           </div>
         </div>
       </section>
