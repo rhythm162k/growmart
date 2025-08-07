@@ -30,6 +30,13 @@ imageInput.addEventListener('change', function () {
 });
 
 document.querySelector('.submit-btn').addEventListener('click', () => {
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  if (!currentUser) {
+    alert("Please log in before adding a product.");
+    window.location.href = 'login.html';
+    return;
+  }
+
   const quantityInput = document.getElementById('quantity');
   const quantity = parseInt(quantityInput.value);
 
@@ -39,7 +46,6 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
   const category = localStorage.getItem('selectedCategory');
   const categoryImage = localStorage.getItem('selectedCategoryImage');
 
-  // ✅ Check: image, quantity, phone
   if (!imageData && !categoryImage) {
     alert("Please upload an image.");
     return;
@@ -62,11 +68,14 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
     phone: phone
   };
 
-  let products = JSON.parse(localStorage.getItem('products')) || [];
+  let allUserProducts = JSON.parse(localStorage.getItem('userProducts')) || {};
+  let products = allUserProducts[currentUser.username] || [];
 
   products.push(product);
+  allUserProducts[currentUser.username] = products;
+
   try {
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('userProducts', JSON.stringify(allUserProducts));
   } catch (e) {
     console.error("Storage full:", e);
     alert("Can't add more products. Storage full.");
