@@ -139,7 +139,18 @@ const navButtons = document.querySelectorAll('.nav-btn');
       document.getElementById('weatherTemp').textContent = `${data.current.temp_c}°`;
       document.getElementById('weatherDay').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long' });
       document.getElementById('weatherLocation').textContent = `${data.location.country}, ${data.location.name}`;
+      const weatherCondition = data.current.condition.text.toLowerCase();
+      const weatherIcon = document.getElementById('weatherIcon');
 
+      if (weatherCondition.includes('sun')) {
+        weatherIcon.src = '../images/sunny.png';
+      } else if (weatherCondition.includes('rain')) {
+        weatherIcon.src = '../images/rainy.png';
+      } else if (weatherCondition.includes('cloud')) {
+        weatherIcon.src = '../images/cloudy.png';
+      } else {
+        weatherIcon.src = '../images/weather.png';
+      }
       document.getElementById('weatherUpdated').textContent = `Last updated ${data.current.last_updated.split(' ')[1]}`;
       document.getElementById('weatherCondition').textContent = data.current.condition.text;
       document.getElementById('weatherWind').textContent = `${data.current.wind_kph} km/h`;
