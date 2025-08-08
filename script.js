@@ -12,3 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 400);
   });
   
+  document.getElementById('farmerBtn').addEventListener('click', () => {
+    window.location.href = './farmerSide/login.html';
+  });
+
+  document.getElementById('customerBtn').addEventListener('click', () => {
+    window.location.href = './customerSide/login.html';
+  });

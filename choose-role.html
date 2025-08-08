@@ -34,21 +34,7 @@
       </div>
     </main>
   </div>
-
-  <script>
-    document.getElementById('farmerBtn').addEventListener('click', () => {
-      window.location.href = './farmerSide/login.html';
-    });
-
-    document.getElementById('customerBtn').addEventListener('click', () => {
-      window.location.href = './customerSide/login.html';
-    });
-
-    // Optional: Language toggle (like your others)
-    document.querySelector('.lang-btn').addEventListener('click', () => {
-      const langText = document.querySelector('.lang-text');
-      langText.textContent = langText.textContent === 'EN' ? 'BN' : 'EN';
-    });
-  </script>
+  <script src="script.js"></script>
+  <script src="langbtn.js"></script>
 </body>
 </html>
