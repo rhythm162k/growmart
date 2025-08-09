@@ -1,22 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navButtons = document.querySelectorAll('.nav-btn');
     const backArrow = document.querySelector('.back-arrow');
     const priceCards = document.querySelectorAll('.price-card');
   
-    // Handle navigation buttons
+    const navButtons = document.querySelectorAll('.nav-btn');
+
+    // 1. Highlight correct button on load
+    const currentPage = window.location.pathname.split("/").pop().replace(".html", "");
+    navButtons.forEach(btn => {
+      if (btn.dataset.page === currentPage) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // 2. Handle navigation clicks
     navButtons.forEach(btn => {
       btn.addEventListener('click', function() {
-        const page = this.getAttribute('data-page');
-  
-        // Remove active class from all buttons
-        navButtons.forEach(b => b.classList.remove('active'));
-  
-        // Add active class to clicked button
-        this.classList.add('active');
-  
-        console.log('Navigating to:', page);
-  
-        // Handle navigation based on page
+        const page = this.dataset.page;
         switch(page) {
           case 'home':
             window.location.href = 'homepage.html';
@@ -33,12 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
           case 'profile':
             window.location.href = 'profile.html';
             break;
-          default:
-            console.log('Unknown page:', page);
         }
       });
+
+    // Hover effect
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transform = 'scale(1.05)';
     });
-  
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'scale(1)';
+    });
+
+    // Touch support for mobile
+    let touchStartY = 0;
+    btn.addEventListener('touchstart', e => {
+      touchStartY = e.touches[0].clientY;
+    });
+    btn.addEventListener('touchend', e => {
+      if (Math.abs(touchStartY - e.changedTouches[0].clientY) < 10) {
+        btn.click();
+      }
+    });
+  });
+
     // Handle back arrow
     backArrow.addEventListener('click', function() {
       console.log('Going back');
