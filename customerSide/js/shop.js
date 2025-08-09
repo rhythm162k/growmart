@@ -3,26 +3,26 @@ document.querySelector('.back-btn').addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-  const category = localStorage.getItem('selectedCategory') || 'Unknown';
   const products = JSON.parse(localStorage.getItem('products')) || [];
 
   const productList = document.querySelector('.product-list');
-  productList.innerHTML = ''; // Clear previous entries
+  productList.innerHTML = '';
 
-  products.forEach((product, index) => {
+  products.forEach((product) => {
     const productItem = document.createElement('div');
     productItem.className = 'product-item';
     productItem.innerHTML = `
       <img src="${product.image}" alt="Product Image">
       <div class="details">
-          <div><strong>Category:</strong> ${product.category || category}</div>
+          <div><strong>Category:</strong> ${product.category}</div>
           <div><strong>Quantity:</strong> ${product.quantity}</div>
+          <div><strong>Seller:</strong> ${product.seller || 'Unknown'}</div>
           <div><strong>Contact:</strong> ${product.phone || 'N/A'}</div>
           ${product.phone ? `<button class="call-btn" onclick="window.location.href='tel:${product.phone}'">Call Now</button>` : ''}
       </div>
     `;
     productList.appendChild(productItem);
-  });  
+  });
 });
 
 const navButtons = document.querySelectorAll('.nav-btn');

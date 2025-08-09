@@ -7,11 +7,18 @@ document.querySelector('.add-btn').addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-  const category = localStorage.getItem('selectedCategory') || 'Unknown';
-  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  if (!currentUser) {
+    alert("Please log in to view your products.");
+    window.location.href = 'login.html';
+    return;
+  }
+
+  let allUserProducts = JSON.parse(localStorage.getItem('userProducts')) || {};
+  const products = allUserProducts[currentUser.username] || [];
 
   const productList = document.querySelector('.product-list');
-  productList.innerHTML = ''; // Clear previous entries
+  productList.innerHTML = '';
 
   products.forEach((product, index) => {
     const productItem = document.createElement('div');
@@ -19,7 +26,7 @@ window.addEventListener('load', () => {
     productItem.innerHTML = `
       <img src="${product.image}" alt="Product Image">
       <div class="details">
-          <div><strong>Category:</strong> ${product.category || category}</div>
+          <div><strong>Category:</strong> ${product.category}</div>
           <div><strong>Quantity:</strong> ${product.quantity}</div>
           <button class="delete-btn" data-index="${index}">Delete</button>
       </div>
@@ -27,14 +34,28 @@ window.addEventListener('load', () => {
     productList.appendChild(productItem);
   });
 
-  // Attach delete logic AFTER the products are rendered
   document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', function () {
       const index = parseInt(this.getAttribute('data-index'));
-      let updatedProducts = JSON.parse(localStorage.getItem('products')) || [];
-      updatedProducts.splice(index, 1); // remove selected product
-      localStorage.setItem('products', JSON.stringify(updatedProducts));
-      location.reload(); // Reload the page to update the list
+      
+      // Remove from userProducts
+      let allUserProducts = JSON.parse(localStorage.getItem('userProducts')) || {};
+      let userProducts = allUserProducts[currentUser.username] || [];
+      let removedProduct = userProducts.splice(index, 1)[0];
+      allUserProducts[currentUser.username] = userProducts;
+      localStorage.setItem('userProducts', JSON.stringify(allUserProducts));
+
+      // Remove from global products
+      let globalProducts = JSON.parse(localStorage.getItem('products')) || [];
+      globalProducts = globalProducts.filter(p =>
+        !(p.seller === removedProduct.seller &&
+          p.category === removedProduct.category &&
+          p.quantity === removedProduct.quantity &&
+          p.phone === removedProduct.phone)
+      );
+      localStorage.setItem('products', JSON.stringify(globalProducts));
+
+      location.reload();
     });
   });
 });

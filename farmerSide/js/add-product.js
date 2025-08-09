@@ -50,12 +50,10 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
     alert("Please upload an image.");
     return;
   }
-
   if (!quantity || quantity <= 0) {
     alert("Please enter a valid quantity.");
     return;
   }
-
   if (!/^01[0-9]{9}$/.test(phone)) {
     alert('Please enter a valid Bangladeshi phone number (e.g., 017xxxxxxxx)');
     return;
@@ -65,22 +63,21 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
     category: category || 'Unknown',
     image: imageData || categoryImage || 'default.jpg',
     quantity: quantity,
-    phone: phone
+    phone: phone,
+    seller: currentUser.username
   };
 
+  // Save to per-user products
   let allUserProducts = JSON.parse(localStorage.getItem('userProducts')) || {};
-  let products = allUserProducts[currentUser.username] || [];
+  let userProducts = allUserProducts[currentUser.username] || [];
+  userProducts.push(product);
+  allUserProducts[currentUser.username] = userProducts;
+  localStorage.setItem('userProducts', JSON.stringify(allUserProducts));
 
-  products.push(product);
-  allUserProducts[currentUser.username] = products;
-
-  try {
-    localStorage.setItem('userProducts', JSON.stringify(allUserProducts));
-  } catch (e) {
-    console.error("Storage full:", e);
-    alert("Can't add more products. Storage full.");
-    return;
-  }
+  // Save to global products for shop
+  let globalProducts = JSON.parse(localStorage.getItem('products')) || [];
+  globalProducts.push(product);
+  localStorage.setItem('products', JSON.stringify(globalProducts));
 
   window.location.href = 'after_added.html';
 });

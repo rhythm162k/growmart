@@ -140,3 +140,12 @@ navButtons.forEach(btn => {
     }
   });
 });
+document.getElementById('myListingBtn').addEventListener('click', () => {
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  if (!currentUser) {
+    alert("Please log in to view your listings.");
+    window.location.href = 'login.html';
+    return;
+  }
+  window.location.href = 'after_added.html';
+});
